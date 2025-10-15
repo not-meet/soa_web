@@ -1,5 +1,4 @@
 "use client"
-
 import { useEffect, useRef } from "react"
 import type React from "react"
 import { useInView } from "motion/react"
@@ -38,24 +37,29 @@ export function Highlighter({
   iterations = 2,
   padding = 2,
   multiline = true,
-  isView = false,
+  isView = true, // Changed default to true
 }: HighlighterProps) {
   const elementRef = useRef<HTMLSpanElement>(null)
   const annotationsRef = useRef<RoughAnnotation[]>([])
-
+  const hasAnimatedRef = useRef(false)
+  
   const isInView = useInView(elementRef, {
     once: true,
     margin: "-10%",
+    amount: 1, // Trigger when 100% of element is visible
   })
 
   // If isView is false, always show. If isView is true, wait for inView
   const shouldShow = !isView || isInView
 
   useEffect(() => {
-    if (!shouldShow) return
+    if (!shouldShow || hasAnimatedRef.current) return
 
     const element = elementRef.current
     if (!element) return
+
+    // Mark as animated
+    hasAnimatedRef.current = true
 
     // Clear previous annotations
     annotationsRef.current.forEach(annotation => {

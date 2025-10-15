@@ -9,6 +9,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { AuroraText } from '../ui/aurora-text';
+import { ShineBorder } from '../ui/shine-border';
+import Image from 'next/image';
 
 const HeroSection = () => {
   const [packageManager, setPackageManager] = useState<string>(() => {
@@ -18,12 +20,15 @@ const HeroSection = () => {
     return 'npm';
   });
   const [copied, setCopied] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const handlePackageManagerChange = (value: string) => {
     setPackageManager(value);
     if (typeof window !== 'undefined') {
       localStorage.setItem('preferredPackageManager', value);
     }
   };
+
   const commands: Record<string, string> = {
     'npm': 'npx soa-auth@beta',
     'bun': 'bunx soa-auth@beta',
@@ -53,10 +58,11 @@ const HeroSection = () => {
           </div>
 
           {/* CLI Command Section */}
-          <div className="space-y-3 w-[80%] bg-white/5 backdrop-blur-sm p-4 rounded-lg">
+          <div className="space-y-3 w-[80%] bg-gradient-to-br from-neutral-500/10 via-neutral-600/50 to-[#111111]  backdrop-blur-[1px] p-4 rounded-lg">
+            <ShineBorder shineColor={["#111111", "#febf01", "#f2cf7f"]} />
             <div className="flex items-center justify-between">
-              <label className="text-sm font-medium text-gray-300 uppercase tracking-wider">
-                CLI Command
+              <label className="text-md font-medium text-[#f2cf7f] uppercase font-inter tracking-wider">
+                CLI_Command
               </label>
               <Select value={packageManager} onValueChange={handlePackageManagerChange}>
                 <SelectTrigger className="w-32 bg-[#111111] backdrop-blur-lg border-gray-700/95 text-gray-200/95">
@@ -95,8 +101,21 @@ const HeroSection = () => {
 
         {/* Right Side - Demo Space (60%) */}
         <div className="lg:col-span-5 flex items-center justify-center">
-          <div className="w-full h-96 lg:h-[500px] bg-gray-800 rounded-lg border border-gray-700 flex items-center justify-center">
-            <p className="text-gray-500 text-lg">Interactive Demo Space</p>
+          <div className="w-auto sm:h-[400px] lg:h-[600px] bg-[#111111] flex items-center justify-center relative">
+            {!imageLoaded && (
+              <div className="absolute inset-0 bg-[#111111] animate-pulse flex items-center justify-center">
+              </div>
+            )}
+            <Image
+              src='/demo.gif'
+              width={900}
+              height={900}
+              alt="demo"
+              unoptimized
+              className={`w-full h-full object-contain transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              onLoad={() => setImageLoaded(true)}
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
