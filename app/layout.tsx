@@ -22,6 +22,9 @@ const fjallaOne = Fjalla_One({
 export const metadata: Metadata = {
   title: "SOA",
   description: "A cli that lets you setup your whole authentication in minutes!",
+  icons: {
+    icon: "/logo.svg",
+  },
   authors: [
     {
       name: "Meet Jain",
@@ -32,6 +35,23 @@ export const metadata: Metadata = {
   robots: "index, follow",
   alternates: {
     canonical: "https://soa.meet-jain.in",
+  },
+  openGraph: {
+    title: "SOA - Setup your whole authentication in minutes!",
+    locale: "en_US",
+    type: "website",
+    description:
+      "SOA is a cli that lets you setup your whole authentication in minutes!",
+    url: "https://soa.meet-jain.in",
+    siteName: "SOA",
+    images: [
+      {
+        url: "https://soa.meet-jain.in/og.png",
+        width: 1200,
+        height: 630,
+        alt: "SOA - Setup your whole authentication in minutes!",
+      },
+    ],
   },
   category: "Technology",
   keywords: [
