@@ -129,7 +129,7 @@ export default function Features() {
                   animationSpeed={3.8}
                   colors={[[239, 68, 68], [220, 38, 38]]}
                   icon={
-                    <Image src={emailOutline} alt="email" className="w-16 h-16 md:w-20 md:h-20 invert-50" />
+                    <Image src={email} alt="email" className="w-16 h-16 md:w-20 md:h-20 opacity-70 grayscale invert-50" />
                   }
                   hoverIcon={
                     <Image src={email} alt="email" className="w-16 h-16 md:w-20 md:h-20 invert" />
@@ -142,7 +142,7 @@ export default function Features() {
                   animationSpeed={3.5}
                   colors={[[36, 147, 97], [62, 207, 142]]}
                   icon={
-                    <Image src={googleOutline} alt="google" className="w-16 h-16 md:w-20 md:h-20 invert-50" />
+                    <Image src={google} alt="google" className="w-16 h-16 md:w-20 md:h-20 opacity-70 grayscale" />
                   }
                   hoverIcon={
                     <Image src={google} alt="google" className="w-16 h-16 md:w-20 md:h-20" />
@@ -155,7 +155,7 @@ export default function Features() {
                   animationSpeed={4}
                   colors={[[88, 101, 242]]}
                   icon={
-                    <Image src={discordOutline} alt="discord" className="w-16 h-16 md:w-20 md:h-20 invert-50" />
+                    <Image src={discord} alt="discord" className="w-16 h-16 md:w-20 md:h-20 opacity-70 grayscale" />
                   }
                   hoverIcon={
                     <Image src={discord} alt="discord" className="w-16 h-16 md:w-20 md:h-20" />
@@ -168,7 +168,7 @@ export default function Features() {
                   animationSpeed={3.2}
                   colors={[[88, 88, 88], [45, 45, 45]]}
                   icon={
-                    <Image src={githubOutline} alt="github" className="w-16 h-16 md:w-20 md:h-20 invert-50" />
+                    <Image src={github} alt="github" className="w-16 h-16 md:w-20 md:h-20 opacity-70 grayscale invert-50" />
                   }
                   hoverIcon={
                     <Image src={github} alt="github" className="w-16 h-16 md:w-20 md:h-20 invert" />
