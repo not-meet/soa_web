@@ -53,6 +53,19 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "SOA - Setup your whole authentication in minutes!",
+    description:
+      "SOA is a cli that lets you setup your whole authentication in minutes!",
+    creator: "@Heyy_Meet",
+    images: [
+      {
+        url: "https://soa.meet-jain.in/og.png",
+        alt: "SOA - Setup your whole authentication in minutes!",
+      },
+    ],
+  },
   category: "Technology",
   keywords: [
     "auth",
