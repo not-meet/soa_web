@@ -39,15 +39,15 @@ export default function Home() {
       }
     })()
   }, []);
-  
+
 
   return (
     <>
-    <HeroSection />
-    <Features />
-    <Support />
-    <Upcoming />
-    <Footer />
+      <HeroSection />
+      <Features />
+      <Upcoming />
+      <Support />
+      <Footer />
     </>
   )
 }

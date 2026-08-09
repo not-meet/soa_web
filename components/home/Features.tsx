@@ -1,16 +1,11 @@
 "use client"
 import { useState } from "react"
-import { Check, Mail } from "lucide-react"
+import { Check } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { AuroraText } from "@/components/ui/aurora-text"
-import { Highlighter } from "@/components/ui/highlighter"
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect"
 import Image from "next/image"
-import googleOutline from "@/constants/icons/googleOutline.svg"
-import emailOutline from "@/constants/icons/emailOutline.svg"
-import discordOutline from "@/constants/icons/discordOutline.svg"
-import githubOutline from "@/constants/icons/githubOutline.svg"
 import email from "@/constants/icons/email.svg"
 import google from "@/constants/icons/google.svg"
 import discord from "@/constants/icons/discord.svg"
@@ -20,15 +15,16 @@ import supabase from "@/constants/icons/supabase.svg"
 import clerk from "@/constants/icons/clerk.svg"
 import betterAuth from "@/constants/icons/betterAuth.svg"
 import { PointerHighlight } from "../ui/pointer-highlight"
+import { DiaTextReveal } from "../ui/dia-text-reveal"
 
-const AuthDistroCard = ({ 
-  title, 
-  icon, 
-  colors, 
+const AuthDistroCard = ({
+  title,
+  icon,
+  colors,
   animationSpeed,
   hoverIcon,
   isLast = false,
-}: { 
+}: {
   title: string
   icon: React.ReactNode
   colors: number[][]
@@ -37,7 +33,7 @@ const AuthDistroCard = ({
   isLast?: boolean
 }) => {
   const [hovered, setHovered] = useState(false)
-  
+
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -62,12 +58,12 @@ const AuthDistroCard = ({
       </AnimatePresence>
       <div className="relative z-10 flex flex-col items-center gap-3">
         <div className="relative w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
-          <motion.div 
+          <motion.div
             className="relative w-full h-full flex items-center justify-center"
             animate={{
               scale: hovered ? [1, 1.2, 1.1] : 1,
               y: hovered ? -5 : 0,
-              transition: { 
+              transition: {
                 duration: 0.3,
                 ease: "easeOut"
               }
@@ -83,7 +79,7 @@ const AuthDistroCard = ({
             )}
           </motion.div>
         </div>
-        <motion.span 
+        <motion.span
           className="text-base text-neutral-500/40 font-bold font-inter"
           animate={{
             y: hovered ? 5 : 0,
@@ -104,8 +100,8 @@ export default function Features() {
       <div className="max-w-6xl mx-auto">
         {/* Title */}
         <div className="mb-12 text-center">
-          <AuroraText 
-            colors={["#fafafa", "#e0e0e0", "#bdbdbd"]} 
+          <AuroraText
+            colors={["#fafafa", "#e0e0e0", "#bdbdbd"]}
             className="text-4xl md:text-5xl font-bold text-gray-100 leading-tight font-fjalla"
           >
             Roll your fav auth in your fav framework!
@@ -182,12 +178,14 @@ export default function Features() {
           {/* Row 1: A3 - Add Authentication */}
           <div className="bg-gradient-to-bl from-55% to-[#febf01] p-[1px]">
             <Card className="h-full p-0 shadow-none rounded-none bg-[#111111] backdrop-blur-sm border-none flex items-center justify-center hover:shadow-2xl hover:shadow-black/50">
-              <CardContent className="p-4 md:p-5">
-                <Highlighter colors={['#111111', '#febf01', '#f2cf7f', '#d3d3d5']} action="highlight" iterations={4}>
-                  <p className="text-xl md:text-2xl text-center text-[#111111] leading-relaxed font-inter font-semibold relative z-10">
-                    Add authentication in a predefined repo or create a new one with soa!
-                  </p>
-                </Highlighter>
+              <CardContent className="p-4 md:p-5 flex items-center justify-center">
+                <h3 className="text-2xl md:text-3xl font-bold text-center font-inter leading-tight">
+                  <DiaTextReveal
+                    text={["Add authentication in a predefined repo or in a new one with soa"]}
+                    colors={["#a1a1a1", "#e5e5e5", "#febf01", "#f2cf7f"]}
+                    textColor="#f3f4f6"
+                  />
+                </h3>
               </CardContent>
             </Card>
           </div>
@@ -196,10 +194,10 @@ export default function Features() {
           <div className="bg-gradient-to-tr from-55% to-[#febf01] p-[1px]">
             <Card className="h-full p-0 shadow-none bg-[#111111] backdrop-blur-md border-none rounded-none hover:shadow-2xl hover:shadow-black/50">
               <CardHeader className="pt-4 md:pt-5 pb-2">
-              <PointerHighlight containerClassName="" pointerClassName="text-neutral-500" rectangleClassName="border-[#febf01] bg-neutral-500/10 border-dashed">
-                <CardTitle className="text-xl md:text-2xl m-2 font-bold text-gray-100 font-inter leading-tight">
-                  Soa ui pack!
-                </CardTitle>
+                <PointerHighlight containerClassName="" pointerClassName="text-neutral-500" rectangleClassName="border-[#febf01] bg-neutral-500/10 border-dashed">
+                  <CardTitle className="text-xl md:text-2xl m-2 font-bold text-gray-100 font-inter leading-tight">
+                    Soa ui pack!
+                  </CardTitle>
                 </PointerHighlight>
               </CardHeader>
               <CardContent className="p-2 md:p-4 pt-2">
